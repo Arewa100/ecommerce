@@ -3,7 +3,7 @@ const CategoriesButton = (props)=> {
     const{textContent, iconLink} = props
     return(
         <>
-        <button className="flex w-full justify-between items-center font-roboto font-extralight rounded-[12px] text-[18px] text-black opacity-[0.74] p-1 hover:bg-slate-400 ">
+        <button className="flex w-full justify-between items-center font-roboto font-semibold rounded-[12px] text-[16px] text-black opacity-[0.74] p-1 hover:bg-slate-400 ">
                             <div className="flex justify-between gap-2">
                                 <img src={iconLink} alt="component icon" />
                                 <p>{textContent}</p>

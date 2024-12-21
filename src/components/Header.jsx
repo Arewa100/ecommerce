@@ -31,6 +31,10 @@ const Header = ()=> {
 
     console.log(currentState);
     
+    const handleTheOver = ()=> {
+        window.alert("hover is working hurray");
+    }
+
     return(
         <>
         <div>
@@ -137,7 +141,7 @@ const Header = ()=> {
 
                         <div className=" w-[588px]">
 
-                            <CategoryButton textContent="Product Categories"/>
+                            <CategoryButton onClick={handleTheOver} textContent="Product Categories"/>
                             <CategoryButton textContent="Motors"/>
                             <CategoryButton textContent="Sensors"/>
                             <CategoryButton textContent="Components"/>
@@ -153,8 +157,8 @@ const Header = ()=> {
             </div>
 
              {/* //this is where i am, wanting to fix a drop down*/}
-                <div className=" m-auto mobile-screen:hidden tablets:block h-[350px] bg-slate-300 tablets:w-full lg:max-w-[1200px]">
-                    <div className=" bg-white w-[300px] h-full pt-3 pl-4 pr-4 pb-3">
+                <div className=" m-auto mobile-screen:hidden tablets:block h-[300px] bg-slate-300 tablets:w-full lg:max-w-[1200px]">
+                    <div className=" bg-white w-[300px] h-full p-4 shadow-lg">
                         <CategoriesButton iconLink="../src/assets/images/componenticon.svg" textContent="Components"/>
                         <CategoriesButton iconLink="../src/assets/images/sensoricon.svg" textContent="Sensors"/>
                         <CategoriesButton iconLink="../src/assets/images/roboticsicon.svg" textContent="Robotics"/>
@@ -162,7 +166,7 @@ const Header = ()=> {
                         <CategoriesButton iconLink="../src/assets/images/micicon.svg" textContent="Audio"/>
                         <CategoriesButton iconLink="../src/assets/images/devicon.svg" textContent="Development"/>
                         <CategoriesButton iconLink="../src/assets/images/wifiIcon.svg" textContent="Wireless & IoT"/>
-                        <CategoriesButton iconLink="../src/assets/images/componenticon.svg" textContent="Components"/>
+                        <CategoriesButton iconLink="../src/assets/images/stackedbookicon.svg" textContent="Miscellaneous"/>
 
                     </div>
                 </div>
