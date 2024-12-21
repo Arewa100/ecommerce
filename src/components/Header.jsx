@@ -1,5 +1,6 @@
 import Logo from "../reusables/logo";
 import { useState } from "react";
+import CategoryButton from "../reusables/categoryButton";
 
 
 const Header = ()=> {
@@ -32,7 +33,7 @@ const Header = ()=> {
     return(
         <>
         <div>
-            <div className="mobile-screen:w-full mobile-screen:max-h-[27px] bg-[#D9D9D9] flex justify-center">
+            <div className="mobile-screen:w-full mobile-screen:max-h-[27px] bg-[#D9D9D9] flex justify-center tablets:fixed">
                 <p className=" italic text-[#FF0800] font-semibold text-[10px]">CHEAP<span className="text-[#2E2787]">ER</span></p>
             </div>
 
@@ -43,8 +44,8 @@ const Header = ()=> {
                         <div className="w-full mobile-screen:max-w-[1200px]">
                             <nav className=" p-2 mobile-screen:h-[50px] mobile-screen:max-w-[1200px] mobile-screen:flex mobile-screen:items-center mobile-screen:justify-between"> 
 
-                                {/* div holding handbugger sign and logo text */}
-                                <div className="mobile-screen:flex items-center gap-4">
+                                {/* div holding handbugger sign and logo text / holding all content */}
+                                <div className="mobile-screen:flex items-center gap-4 lg:flex lg:w-full lg:justify-between tablets:flex tablets:w-full tablets:justify-between">
 
                                     <div className="tablets:hidden">
                                         <button  onClick={handleClick} className="h-5 text-gray-800 hover:text-[#FF0800] transition duration-[0.2s] ">
@@ -58,8 +59,9 @@ const Header = ()=> {
                                         <Logo/>
                                     </div>
 
+                                    {/* ml-[150px] */}
                                     {/* second search  */}
-                                        <div className="tablets:block mobile-screen:hidden ml-[150px]">
+                                        <div className="tablets:block mobile-screen:hidden ">
                                             <div className="flex w-[430px] h-[35px] items-centerrounded-[12px]">
                                                 <input className="rounded-tl-[12px] rounded-bl-[12px] outline-none p-2 w-[380px] h-[35px] bg-[#F5F5F5] shadow-lg text-black opacity-[0.74] font-roboto placeholder:font-roboto placeholder:text-[#B4B4B4] hover:drop-shadow-xl" type="text" placeholder="Search products and categories"/>
                                                 <button className="h-[35px] w-[50px] bg-[#FF0800] flex items-center justify-center rounded-tr-[12px] shadow-lg rounded-br-[12px] text-slate-50  hover:bg-black hover:opacity-[0.74] transition duration-[0.2s]">
@@ -70,20 +72,24 @@ const Header = ()=> {
                                      
                                             </div>
                                         </div>
-
+                                        
+                                        {/* sm:ml-[144px] */}
                                         {/* input buttons */}
-                                        <div className=" mobile-screen:hidden tablets:block ml-[144px]">
-                                            <div className="gap-5 flex">
+                                        <div className=" mobile-screen:hidden tablets:block">
+                                            <div className="gap-3 flex">
                                                 <div>
                                                     <button className="w-[75px] h-[39px] rounded-[12px] bg-[#D9D9D9] font-roboto text-sm text-black text-opacity-[0.74] shadow-md  hover:bg-black hover:opacity-[0.74] hover:text-slate-50 transition duration-[0.2s]">Login</button>
                                                 </div>
 
                                                 <div>
-                                                <button className=" w-[75px] h-[39px] rounded-[12px] bg-[#FF0800] font-roboto text-sm  text-slate-50 shadow-md hover:bg-black hover:opacity-[0.74] transition duration-[0.2s]">Sign Up</button>
+                                                    <button className=" w-[75px] h-[39px] rounded-[12px] bg-[#FF0800] font-roboto text-sm  text-slate-50 shadow-md hover:bg-black hover:opacity-[0.74] transition duration-[0.2s]">Sign Up</button>
                                                 </div>
-                                                <div className="flex items-center gap-1">
-                                                    <img className="h-5" src="../src/assets/images/cart.svg" alt="cart icon" />
-                                                    <p className="font-roboto">Cart</p>
+
+                                                <div className=" tablets:hidden lg:block">
+                                                    <div className="flex items-center gap-1 h-[39px]">
+                                                        <img className="h-5" src="../src/assets/images/cart.svg" alt="cart icon" />
+                                                        <p className="font-roboto">Cart</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -122,8 +128,28 @@ const Header = ()=> {
 
             </div>
 
-            <div className="mobile-screen: bg-[#2E2787] mobile-screen:h-[12px] tablets:h-[64px] flex justify-center">
-                <p className="text-[8px] text-white font-Roboto Flex">somthing can be here</p>
+            <div className="mobile-screen: bg-[#2E2787] mobile-screen:h-[12px] tablets:h-[64px] flex justify-center tablets: sticky top-0">
+
+                <div className=" mobile-screen:hidden tablets:block tablets:w-[1200px] tablets:h-full ">
+
+                    <div className="flex h-full items-center justify-between">
+
+                        <div className=" w-[588px]">
+
+                            <CategoryButton textContent="Product Categories"/>
+                            <CategoryButton textContent="Motors"/>
+                            <CategoryButton textContent="Sensors"/>
+                            <CategoryButton textContent="Components"/>
+                            
+                        </div>
+
+                        <div>
+                            <CategoryButton textContent="Find a developer"/>
+                        </div>
+                    </div>
+                </div>
+
+                <p className="tablets:hidden text-[8px] text-white font-Roboto Flex">somthing can be here</p>
             </div>
         </div>
     </>
