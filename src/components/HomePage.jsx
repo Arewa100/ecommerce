@@ -3,7 +3,7 @@ import Header from "./Header";
 const Homepage = ()=> {
     return(
         <>
-        <div className="h-[5000px] m-auto xl:max-w-[1440px]">
+        <div className="h-[5000px] m-auto xl:max-w-[1440px] bg-[#F5F5F3]">
             <Header/>
         </div>
         </>

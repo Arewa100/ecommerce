@@ -1,6 +1,7 @@
 import Logo from "../reusables/logo";
 import { useState } from "react";
 import CategoryButton from "../reusables/categoryButton";
+import CategoriesButton from "../reusables/CategoriesButton";
 
 
 const Header = ()=> {
@@ -127,7 +128,7 @@ const Header = ()=> {
                     </div>
 
             </div>
-
+          
             <div className="mobile-screen: bg-[#2E2787] mobile-screen:h-[12px] tablets:h-[64px] flex justify-center tablets: sticky top-0">
 
                 <div className=" mobile-screen:hidden tablets:block tablets:w-[1200px] tablets:h-full ">
@@ -148,9 +149,24 @@ const Header = ()=> {
                         </div>
                     </div>
                 </div>
-
                 <p className="tablets:hidden text-[8px] text-white font-Roboto Flex">somthing can be here</p>
             </div>
+
+             {/* //this is where i am, wanting to fix a drop down*/}
+                <div className=" m-auto mobile-screen:hidden tablets:block h-[350px] bg-slate-300 tablets:w-full lg:max-w-[1200px]">
+                    <div className=" bg-white w-[300px] h-full pt-3 pl-4 pr-4 pb-3">
+                        <CategoriesButton iconLink="../src/assets/images/componenticon.svg" textContent="Components"/>
+                        <CategoriesButton iconLink="../src/assets/images/sensoricon.svg" textContent="Sensors"/>
+                        <CategoriesButton iconLink="../src/assets/images/roboticsicon.svg" textContent="Robotics"/>
+                        <CategoriesButton iconLink="../src/assets/images/tools.svg" textContent="Tools"/>
+                        <CategoriesButton iconLink="../src/assets/images/micicon.svg" textContent="Audio"/>
+                        <CategoriesButton iconLink="../src/assets/images/devicon.svg" textContent="Development"/>
+                        <CategoriesButton iconLink="../src/assets/images/wifiIcon.svg" textContent="Wireless & IoT"/>
+                        <CategoriesButton iconLink="../src/assets/images/componenticon.svg" textContent="Components"/>
+
+                    </div>
+                </div>
+
         </div>
     </>
     )
