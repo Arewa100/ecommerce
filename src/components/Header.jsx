@@ -1,5 +1,5 @@
 import Logo from "../reusables/logo";
-import { useState } from "react";
+import { useState, useRef} from "react";
 import CategoryButton from "../reusables/categoryButton";
 import CategoriesButton from "../reusables/CategoriesButton";
 
@@ -31,9 +31,42 @@ const Header = ()=> {
 
     console.log(currentState);
     
-    const handleTheOver = ()=> {
-        window.alert("hover is working hurray");
+    const[isHover, setIsHover] = useState(false)
+    const[isHoverForDropDown, setHoverForDropDown] = useState(false)
+
+    const handleDropDownButtonEnter = ()=> {
+
+            setIsHover((preVState)=> {
+                preVState = true
+                return(preVState);
+            })
+        }
+
+    const handleDropDownButtonLeave = ()=> {
+        setTimeout(() => {
+            setIsHover((preVState)=> {
+                preVState = false
+                return(preVState);
+            })
+        }, 100);
     }
+ 
+    const handleDropDownEnter =()=> {
+        setHoverForDropDown((preVState)=> {
+            preVState = true
+            return(preVState);
+        })
+    }
+
+    const handleDropDownLeave =()=> {
+        setHoverForDropDown((preVState)=> {
+            preVState = false
+            return(preVState);
+        })
+    }
+   
+
+    console.log(isHover)
 
     return(
         <>
@@ -133,6 +166,7 @@ const Header = ()=> {
 
             </div>
           
+          {/* the drop down button section */}
             <div className="mobile-screen: bg-[#2E2787] mobile-screen:h-[12px] tablets:h-[64px] flex justify-center tablets: sticky top-0">
 
                 <div className=" mobile-screen:hidden tablets:block tablets:w-[1200px] tablets:h-full ">
@@ -141,7 +175,7 @@ const Header = ()=> {
 
                         <div className=" w-[588px]">
 
-                            <CategoryButton onClick={handleTheOver} textContent="Product Categories"/>
+                            <CategoryButton onEnter={handleDropDownButtonEnter} onLeave={handleDropDownButtonLeave} textContent="Product Categories"/>
                             <CategoryButton textContent="Motors"/>
                             <CategoryButton textContent="Sensors"/>
                             <CategoryButton textContent="Components"/>
@@ -156,20 +190,26 @@ const Header = ()=> {
                 <p className="tablets:hidden text-[8px] text-white font-Roboto Flex">somthing can be here</p>
             </div>
 
-             {/* //this is where i am, wanting to fix a drop down*/}
-                <div className=" m-auto mobile-screen:hidden tablets:block h-[300px] bg-slate-300 tablets:w-full lg:max-w-[1200px]">
-                    <div className=" bg-white w-[300px] h-full p-4 shadow-lg">
-                        <CategoriesButton iconLink="../src/assets/images/componenticon.svg" textContent="Components"/>
-                        <CategoriesButton iconLink="../src/assets/images/sensoricon.svg" textContent="Sensors"/>
-                        <CategoriesButton iconLink="../src/assets/images/roboticsicon.svg" textContent="Robotics"/>
-                        <CategoriesButton iconLink="../src/assets/images/tools.svg" textContent="Tools"/>
-                        <CategoriesButton iconLink="../src/assets/images/micicon.svg" textContent="Audio"/>
-                        <CategoriesButton iconLink="../src/assets/images/devicon.svg" textContent="Development"/>
-                        <CategoriesButton iconLink="../src/assets/images/wifiIcon.svg" textContent="Wireless & IoT"/>
-                        <CategoriesButton iconLink="../src/assets/images/stackedbookicon.svg" textContent="Miscellaneous"/>
+             {/* //this is for the drop down category*/}
+                <div  onMouseEnter={handleDropDownEnter} onMouseLeave={handleDropDownLeave}  className={`${isHover || isHoverForDropDown? 'tablets:block' : 'hidden'}  m-auto mobile-screen:hidden h-[300px] bg-[url("src/assets/images/blueBackground.svg")] bg-cover  tablets:w-full lg:max-w-[100%]`}>
+                    <div className="h-[300px] tablets:w-full lg:max-w-[1200px] m-auto bg-white">
+                        <div className=" bg-white w-[300px] h-full p-4 shadow-lg">
+                            <CategoriesButton iconLink="../src/assets/images/componenticon.svg" textContent="Components"/>
+                            <CategoriesButton iconLink="../src/assets/images/sensoricon.svg" textContent="Sensors"/>
+                            <CategoriesButton iconLink="../src/assets/images/roboticsicon.svg" textContent="Robotics"/>
+                            <CategoriesButton iconLink="../src/assets/images/tools.svg" textContent="Tools"/>
+                            <CategoriesButton iconLink="../src/assets/images/micicon.svg" textContent="Audio"/>
+                            <CategoriesButton iconLink="../src/assets/images/devicon.svg" textContent="Development"/>
+                            <CategoriesButton iconLink="../src/assets/images/wifiIcon.svg" textContent="Wireless & IoT"/>
+                            <CategoriesButton iconLink="../src/assets/images/stackedbookicon.svg" textContent="Miscellaneous"/>
 
+                        </div>
                     </div>
                 </div>
+
+            <div className="bg-red-800 tablets block mobile-screen:hidden">
+                maybe working
+            </div>
 
         </div>
     </>
