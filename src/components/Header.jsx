@@ -84,7 +84,8 @@ const Header = ()=> {
 
                                 {/* div holding handbugger sign and logo text / holding all content */}
                                 <div className="mobile-screen:flex items-center gap-4 lg:flex lg:w-full lg:justify-between tablets:flex tablets:w-full tablets:justify-between">
-
+                                    
+                                    {/* handbugeer */}
                                     <div className="tablets:hidden">
                                         <button  onClick={handleClick} className="h-5 text-gray-800 hover:text-[#FF0800] transition duration-[0.2s] ">
                                             <svg className=" h-6 fill-current" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -112,7 +113,7 @@ const Header = ()=> {
                                         </div>
                                         
                                         {/* sm:ml-[144px] */}
-                                        {/* input buttons */}
+                                        {/* input signup  buttons */}
                                         <div className=" mobile-screen:hidden tablets:block">
                                             <div className="gap-3 flex">
                                                 <div>
@@ -192,7 +193,7 @@ const Header = ()=> {
 
              {/* //this is for the drop down category*/}
                 <div  onMouseEnter={handleDropDownEnter} onMouseLeave={handleDropDownLeave}  className={`${isHover || isHoverForDropDown? 'tablets:block' : 'hidden'}  m-auto mobile-screen:hidden h-[300px] bg-[url("src/assets/images/blueBackground.svg")] bg-cover  tablets:w-full lg:max-w-[100%]`}>
-                    <div className="h-[300px] tablets:w-full lg:max-w-[1200px] m-auto bg-white">
+                    <div className="h-[300px] tablets:w-full lg:max-w-[1200px] m-auto bg-white shadow-lg">
                         <div className=" bg-white w-[300px] h-full p-4 shadow-lg">
                             <CategoriesButton iconLink="../src/assets/images/componenticon.svg" textContent="Components"/>
                             <CategoriesButton iconLink="../src/assets/images/sensoricon.svg" textContent="Sensors"/>
@@ -206,11 +207,6 @@ const Header = ()=> {
                         </div>
                     </div>
                 </div>
-
-            <div className="bg-red-800 tablets block mobile-screen:hidden">
-                maybe working
-            </div>
-
         </div>
     </>
     )
