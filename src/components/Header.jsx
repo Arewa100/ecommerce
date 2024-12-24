@@ -168,7 +168,7 @@ const Header = ()=> {
             </div>
           
           {/* the drop down button section */}
-            <div className="mobile-screen: bg-[#2E2787] mobile-screen:h-[12px] tablets:h-[64px] flex justify-center tablets: sticky top-0">
+            <div className="mobile-screen: bg-[#2E2787] mobile-screen:h-[12px] tablets:h-[64px] flex justify-center tablets: sticky top-0  ">
 
                 <div className=" mobile-screen:hidden tablets:block tablets:w-[1200px] tablets:h-full ">
 

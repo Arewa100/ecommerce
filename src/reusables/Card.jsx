@@ -10,8 +10,8 @@ const Card = ()=> {
     return(
         <>
         <div className="tablets:block mobile-screen:hidden lg:w-[230px] shadow-radial-sm-less-noticeable tablets:w-[155px] h-[360px] bg-white p-4 pt-1 hover:shadow-radial-xl hover:transition duration-[0.7s]">
-            <div className=" h-[190px] w-full">
-                <img className="object-cover h-full w-full" src="src/assets/productsImage/arduinoUno.svg" alt="" />
+            <div className=" bg-white h-[190px] w-full">
+                <img className="object-cover h-full w-full" src="src/assets/productsImage/pic.svg" alt="" />
             </div>
 
             <p className="font-roboto text-[13px] font-semibold text-slate-800 text-opacity-[0.74]  mt-2 border-t-[0.05rem] border-t-[#B4B4B4] border-opacity-[0.50] pt-1">Arduino Uno R3</p>
