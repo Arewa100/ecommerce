@@ -2,6 +2,7 @@ import Logo from "../reusables/logo";
 import { useState, useRef} from "react";
 import CategoryButton from "../reusables/categoryButton";
 import CategoriesButton from "../reusables/CategoriesButton";
+import { motion, AnimatePresence } from "framer-motion";
 
 
 const Header = ()=> {
@@ -68,13 +69,14 @@ const Header = ()=> {
 
     console.log(isHover)
 
+    const[loginFormState, setLoginFormState] = useState(false)
+
+
+
     return(
         <>
         <div>
-            <div className="mobile-screen:w-full mobile-screen:max-h-[27px] bg-[#D9D9D9] flex justify-center tablets:fixed">
-                <p className=" italic text-[#FF0800] font-semibold text-[10px]">CHEAP<span className="text-[#2E2787]">ER</span></p>
-            </div>
-
+            {/* header line was orignally here */}
             <div className="mobile-screen:w-full  h-[132px] mobile-screen:bg-white">
                     
                     {/* this is the navbar */}
@@ -117,11 +119,12 @@ const Header = ()=> {
                                         <div className=" mobile-screen:hidden tablets:block">
                                             <div className="gap-3 flex">
                                                 <div>
-                                                    <button className="w-[75px] h-[39px] rounded-[12px] bg-[#D9D9D9] font-roboto text-sm text-black text-opacity-[0.74] shadow-md  hover:bg-black hover:opacity-[0.74] hover:text-slate-50 transition duration-[0.2s]">Login</button>
+                                                    <motion.button whileTap={{scale:0.8}} onClick={()=> {setLoginFormState(!loginFormState)}} className="w-[75px] h-[39px] rounded-[12px] bg-[#D9D9D9] font-roboto text-sm text-black text-opacity-[0.74] shadow-md  hover:bg-black hover:opacity-[0.74] hover:text-slate-50 transition duration-[0.2s]">Login</motion.button>
                                                 </div>
 
+
                                                 <div>
-                                                    <button className=" w-[75px] h-[39px] rounded-[12px] bg-[#FF0800] font-roboto text-sm  text-slate-50 shadow-md hover:bg-black hover:opacity-[0.74] transition duration-[0.2s]">Sign Up</button>
+                                                    <motion.button  whileTap={{scale:0.8}} className="w-[75px] h-[39px] rounded-[12px] bg-[#FF0800] font-roboto text-sm  text-slate-50 shadow-md hover:bg-black hover:opacity-[0.74] transition duration-[0.2s]">Sign Up</motion.button>
                                                 </div>
 
                                                 <div className=" tablets:hidden lg:block">
@@ -148,8 +151,12 @@ const Header = ()=> {
                             </nav>
 
                               {/* this is the dropbox */}
-                            <div className={`tablets:hidden bg-red-100 mobile-screen:w-[250px] absolute h-[1000px] ${currentState.state ? 'block' : 'hidden'}`}>  
-                                <h1>popular categories</h1>
+                            <div className="bg-yellow-300 h-full w-full">
+
+                                <div className={`tablets:hidden bg-green-700 mobile-screen:w-[250px] absolute mobile-screen:h-full ${currentState.state ? 'block' : 'hidden'}`}>  
+                                    <h1>popular categories</h1>
+                                </div>
+
                             </div>
 
                                     {/* this is the <search> */}
@@ -168,7 +175,7 @@ const Header = ()=> {
             </div>
           
           {/* the drop down button section */}
-            <div className="mobile-screen: bg-[#2E2787] mobile-screen:h-[12px] tablets:h-[64px] flex justify-center tablets: sticky top-0  ">
+            <div className="mobile-screen: bg-[#2E2787] mobile-screen:h-[12px] tablets:h-[64px] flex justify-center tablets: sticky top-0 ">
 
                 <div className=" mobile-screen:hidden tablets:block tablets:w-[1200px] tablets:h-full ">
 
@@ -207,6 +214,20 @@ const Header = ()=> {
                         </div>
                     </div>
                 </div>
+
+
+
+                            {/* testing animation for login button */}
+                             {/* <AnimatePresence>
+                                    {loginFormState ? <motion.div className="bg-green-600 w-[300px] h-[200px]"  initial={{opacity: 0}} animate={{opacity: 1}}>
+
+                                    </motion.div> : null}
+                            </AnimatePresence>
+                            
+
+                            <motion.p initial={{opacity: 0, scale: 0.5}} animate={{opacity: 1, scale: 1}} className="font-roboto text-[20px]" drag dragConstraints={{top:-125, right:125, left: 125, bottom:-125}} dragTransition={{bounceStiffness: 600, bounceDamping:10}}>
+                                we are doing great
+                            </motion.p> */}
         </div>
     </>
     )
