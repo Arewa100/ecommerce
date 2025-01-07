@@ -22,13 +22,11 @@ const Homepage = ()=> {
             <HeadingLabel textContent="Featured Product" backGroundColor="bg-red-400"/>
             <FeaturedProduct/>
             {/* <HeadingLabel textContent="we have sponsored over 2000 Engineers" backGroundColor="bg-green-900 "/> */}
-            <RegisterAsADeveloperSection/>
-            {/* <HeadingLabel textContent="Customer Feedback" backGroundColor="bg-cyan-900 "/> */}
-            {/* <CustomerFeedback/> */}
-
-            <div className="w-full bg-green-600 flex justify-center">
-            {/* <Comments/> */}
+            <div className="bg-red-500 w-full h-[500px]">
+                <RegisterAsADeveloperSection/>
             </div>
+            {/* <HeadingLabel textContent="Customer Feedback" backGroundColor="bg-cyan-900 "/> */}
+            <CustomerFeedback/>
     
         </div>
         </>
