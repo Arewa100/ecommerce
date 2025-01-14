@@ -3,11 +3,14 @@ import { useState, useRef} from "react";
 import CategoryButton from "../reusables/categoryButton";
 import CategoriesButton from "../reusables/CategoriesButton";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSelector } from "react-redux";
 
 
 const Header = ()=> {
 
-
+    const theState = useSelector((state)=> state.categoriesButton.value)
+    console.log(theState)
+    
     const isOpen = {
         state: false
     }
@@ -200,9 +203,9 @@ const Header = ()=> {
 
              {/* //this is for the drop down category*/}
                 <div  onMouseEnter={handleDropDownEnter} onMouseLeave={handleDropDownLeave}  className={`${isHover || isHoverForDropDown? 'tablets:block' : 'hidden'}  m-auto mobile-screen:hidden h-[300px] bg-[url("src/assets/images/blueBackground.svg")] bg-cover  tablets:w-full lg:max-w-[100%]`}>
-                    <div className="h-[300px] tablets:w-full lg:max-w-[1200px] m-auto bg-white shadow-lg">
+                    <div className="h-[300px] tablets:w-full lg:max-w-[1200px] m-auto bg-white shadow-lg flex justify-between">
                         <div className=" bg-white w-[300px] h-full p-4 shadow-lg">
-                            <CategoriesButton iconLink="../src/assets/images/componenticon.svg" textContent="Components"/>
+                            <CategoriesButton iconLink="../src/assets/images/componenticon.svg" textContent="Components" info="Arduino nano"/>
                             <CategoriesButton iconLink="../src/assets/images/sensoricon.svg" textContent="Sensors"/>
                             <CategoriesButton iconLink="../src/assets/images/roboticsicon.svg" textContent="Robotics"/>
                             <CategoriesButton iconLink="../src/assets/images/tools.svg" textContent="Tools"/>
@@ -212,6 +215,8 @@ const Header = ()=> {
                             <CategoriesButton iconLink="../src/assets/images/stackedbookicon.svg" textContent="Miscellaneous"/>
 
                         </div>
+                        <h1>{String(theState)}</h1>
+                        <h1 className={`h-[50px] w-[300px] bg-red-600 ${theState ? "tablets:block tablets:bg-yellow-300" : "bg-green-500"}`}>maybe</h1> // this is where i am
                     </div>
                 </div>
 
@@ -227,7 +232,7 @@ const Header = ()=> {
 
                             <motion.p initial={{opacity: 0, scale: 0.5}} animate={{opacity: 1, scale: 1}} className="font-roboto text-[20px]" drag dragConstraints={{top:-125, right:125, left: 125, bottom:-125}} dragTransition={{bounceStiffness: 600, bounceDamping:10}}>
                                 we are doing great
-                            </motion.p> */}
+                            </motion.p>  */}
         </div>
     </>
     )
