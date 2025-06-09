@@ -8,6 +8,11 @@ import { useSelector } from "react-redux";
 
 const Header = ()=> {
 
+    const components = {
+        arduino: "arduino",
+        raspberripi: "Raspberri Pi"
+    }
+
     const theState = useSelector((state)=> state.categoriesButton.value)
     console.log(theState)
     
@@ -216,7 +221,7 @@ const Header = ()=> {
 
                         </div>
                         <h1>{String(theState)}</h1>
-                        <h1 className={`h-[50px] w-[300px] bg-red-600 ${theState ? "tablets:block tablets:bg-yellow-300" : "bg-green-500"}`}>maybe</h1> // this is where i am
+                        <h1 className={`h-[50px] w-[300px] bg-red-600 ${theState ? "tablets:block tablets:bg-yellow-300" : "bg-green-500"}`}>maybe</h1> 
                     </div>
                 </div>
 

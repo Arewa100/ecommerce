@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    value:false
+    value:false,
+    id: null
 }
 export const categoriesButtonSlice = createSlice({
     name: 'categoriesButton',

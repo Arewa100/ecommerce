@@ -8,8 +8,11 @@ const CategoriesButton = (props)=> {
     const dispatch = useDispatch()
 
     const handleEntering = ()=> {
-        dispatch(entering())
+        setTimeout(()=> {
+            dispatch(entering())
+        }, 500)
     }
+
 
     const handleLeaving = ()=> {
         dispatch(leaving())
@@ -17,7 +20,7 @@ const CategoriesButton = (props)=> {
 
     return(
         <>
-        <button className="flex w-full justify-between items-center font-roboto font-semibold rounded-[12px] text-[16px] text-black opacity-[0.74] p-1 hover:bg-slate-400" onMouseMove={handleEntering} onMouseOut={handleLeaving}> //this is where i am
+        <button className="flex w-full justify-between items-center font-roboto font-semibold rounded-[12px] text-[16px] text-black opacity-[0.74] p-1 hover:bg-slate-400" onMouseEnter={handleEntering} onMouseLeave={handleLeaving}> 
                             <div className="flex justify-between gap-2">
                                 <img src={iconLink} alt="component icon" />
                                 <p>{textContent}</p>
