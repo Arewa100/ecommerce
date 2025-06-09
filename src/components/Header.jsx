@@ -1,6 +1,6 @@
 import Logo from "../reusables/logo";
 import { useState, useRef} from "react";
-import CategoryButton from "../reusables/categoryButton";
+import CategoryButton from "../reusables/CategoryButton";
 import CategoriesButton from "../reusables/CategoriesButton";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
